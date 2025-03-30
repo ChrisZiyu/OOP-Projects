@@ -1,0 +1,20 @@
+# Ignore everything
+*
+
+# But allow .cpp and .h files
+!*.cpp
+!*.h
+!/.gitignore
+
+# Ignore build files, executables, and IDE-related files
+*.exe
+*.obj
+*.o
+*.log
+*.ilk
+*.pdb
+*.idb
+*.tlog
+*.vcxproj.user
+*.suo
+*.sdf
