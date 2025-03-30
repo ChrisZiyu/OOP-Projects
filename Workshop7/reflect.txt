@@ -1,0 +1,80 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 11/14/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+Inherit a derived class from a base class
+To inherit a derived class from a base class the implementation was like this
+when defining the class the class need to specify that its going to have a derived class like this way:
+class Pack : public Container
+the : mean that the member intializes and the base constructor will be called during construction.
+such as 
+	initialize Base- Pack::Pack(const char* description, int unitSize): set to default values so the base constructor can implement the logic Container(description, 330 * unitSize, 0), m_unitSize(330), m_numOfUnits(unitSize)
+the pack is initialized but also the derived class was initialized to receive the parameters specify in that constructor.
+
+
+Shadow the base class member functions with the derived class member functions
+------------------------------------------------------------------------------
+int getNoUnits() const;
+    int getSize() const;
+   
+};
+
+// In the Pack class (derived from Container)
+class Pack : public Container {
+    
+public:
+    int getNoUnits() const {
+        return getVolume() / m_unitSize;
+    }
+
+    int getSize() const {
+        return getCapacity() / m_unitSize;
+    }
+getNoUnits, getSize shadow the base class. Which means thhat the function is name is in both base and derived class but
+the derived class have a different logic the protected share those functions so the derived class can access those private data variables. this is called shadowing the base class member functions.
+
+Access shadowed member functions that are defined in a base class:
+------------------------------------------------------------------
+when using protected the base share the functions within the protected definition, which means that the derived class can get parameters from the base
+to perform some sort of calculations, for example if we want to get the private data variable from a base class in the derived class its not possible to call 
+the variable explicitly, so the base class shared the functions declared in the protected keyword.
+an example of this are these function:
+		int Pack::getNoUnits() const
+	{
+		/*if (isValid())*/
+		{
+			return getVolume() / m_unitSize;//getvolume is a function declared in protected so we can get the volume from the base class.
+		}
+		/*return 0;*/
+	}
+
+	int Pack::getSize() const
+	{
+		/*if (isValid())*/
+		{
+			return getCapacity() / m_unitSize;//same as here to get the value of capacity
+		}
+		/*return 0;*/
+	}
+Utilize custom input/output operators with these classes:
+--------------------------------------------------------
+the derived class inherit the base class functions so when using the >><< operators we can format the output depending on the objects of the classes.
+	std::ostream& operator<<(std::ostream& ostr, const Pack& pack);
+	std::istream& operator>>(std::istream& istr, Pack& pack);
+	std::ostream& operator<<(std::ostream& ostr, const Container& container);
+	std::istream& operator>>(std::istream& istr, Container& container);
+	the two objects have the <<>> operators but both share the Container::read since the child class need the parameters recieved in read
+to perform operations.
+
+Describe to your instructor what you have learned in completing this workshop
+i have learned that i over complicate myself in the logic of all workshops, in this workshop the logic was so simple but in my case i overthink the solution but at the end i managed to make it work.
+when using derived classes theres a reason why bases classes share their functions to the child classes, to make it simple and avoid repetition in our logic making it more simple, and easier to maintain.
+in my case i added one extra private data variable when there was no reason for that.

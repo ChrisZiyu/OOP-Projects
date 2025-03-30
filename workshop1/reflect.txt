@@ -1,0 +1,16 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 9/09/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+In this workshop, I've learned the importance of modular programming and code organization using header and implementation files. By breaking code into modules, we enhance maintainability and readability.
+To avoid issues like the one-definition rule, we must ensure unique safeguard names in header files. These safeguards prevent multiple inclusions. 
+The compilation process involves preprocessing, individual compilation of .cpp files, and linking binaries to execute the program. 
+An important highlight is that safeguard names must be distinct to avoid conflicts. 
+This workshop highlighted the significance of well-structured code, preventing errors, and facilitating smoother development.

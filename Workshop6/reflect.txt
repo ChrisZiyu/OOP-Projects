@@ -1,0 +1,107 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 11/7/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+
+define and implement multiple constructors
+------------------------------------------
+In the milestone we created:
+		Date();
+		Date(int year, int month, int day);
+		Status();
+		Status(char* desc,int status);
+and in the w6 :
+ 	HealthCard();
+        HealthCard(const char* name,long long number, const char vCode[], const char sNumber[]);
+
+define and implement the rule of three
+--------------------------------------
+        //Rule of three
+        HealthCard(const HealthCard& hc);
+	HealthCard::HealthCard(const HealthCard& hc)
+	{
+		if (hc.m_name)
+		{
+			m_name = new char[strlen(hc.m_name) + 1];//shallowcopy
+			strcpy(m_name, hc.m_name);
+			m_number = hc.m_number;
+			strcpy(m_vCode, hc.m_vCode);
+			strcpy(m_sNumber, hc.m_sNumber);
+		}
+		else
+		{
+			setEmpty();
+		}
+		
+	}
+	//copy constructor
+	Creates a shallow copy for the m_name, m_name is a new healthcard object and hc.m_name is the source object that will share the same memory. Any changes on m_name will affect the other object too.
+        //copy assignment operator//
+	assign one object to another, doing a deep copy of the of resources, it release the existing resource of in the target object and copy them into that source object. so It release the data FROM the LEft operand
+	and assign the Right operand to it. if the condition this!=&hc is not met the fuinction specify that set them to nullptr in order to not receive memory leaks.
+	HealthCard& HealthCard::operator=(const HealthCard& hc)
+	{
+		if (this!=&hc)
+		{
+			delete[] m_name;
+			m_name = nullptr;
+			if (hc.m_name)
+			{
+				m_name = new char[strlen(hc.m_name) + 1];
+				strcpy(m_name, hc.m_name);
+				m_number = hc.m_number;
+				strcpy(m_vCode, hc.m_vCode);
+				strcpy(m_sNumber, hc.m_sNumber);
+			}
+
+		}
+		else{
+			setEmpty();
+		}
+		return *this;
+	}
+        ~HealthCard();//destroy the healthcard which was dynamic allocated. this will make that there are no memory leaks.
+	
+Read formatted data using istream
+---------------------------------
+we use cin to get input from a user but whenever we are working with object we use the istream to just specify that istream is receiving a address of a parameter which in this case can be an object so if we received parameters on the constructor during object creation and we want to modify some of them we can just do cin>>C; or also create another instance of C with different received values with the str.get function set some validations to set to true the values that we received are parse correctly then it will return the istream object with some format in it as an example we can get the peek() function that will extract specified character of a received string so that will format out private data members so then we can store them in the designated values.
+		std::istream& read(std::istream& str);
+		
+		std::istream& read(std::istream& CIN);
+
+Write formatted data using ostream
+----------------------------------
+it works the same was as the istream but this one is to print out to the userinterfaces checking some validations and returning now the ostream object that is formatted using the iomanip library.
+		std::ostream& write(std::ostream& COUT) const;
+		std::ostream& print(std::ostream& ostr, bool toFile = true) const;
+
+Overload the extraction and insertion operators for I/O, using iostream
+this makes the life easier for whenever printing an object since if the object received is in good state we can just call the function print with the received object and go thorugh the conditions that we specified in our program
+	std::ostream& operator<<(std::ostream& ostr, const HealthCard& hc)
+	{
+		
+		if (hc.validCard())
+		{
+			hc.print(ostr, false);
+		}
+		else
+		{
+			ostr << "Invalid Health Card Record";
+		}
+		return ostr;
+	}
+
+	std::istream& operator>>(std::istream& istr, HealthCard& hc)
+	{
+		return hc.read(istr);
+	}
+
+so in this case we validate first that the current object is in a valid state even if we already validate that the received data members during creation are valid, i think is a good practice to also check the object validity just to make sure that we dont get weird values after creation.

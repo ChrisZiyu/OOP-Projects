@@ -1,0 +1,60 @@
+Script started on Fri 24 Nov 2023 08:58:52 PM EST
+==57263== Memcheck, a memory error detector
+==57263== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==57263== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==57263== Command: ws
+==57263== 
+List of Graduates using Graduate Class Object and
+Testing copy constructor and copy assignment
+*************************************************
+Name: Tim David
+Age: 30
+Thesis Title: Short range wireless technologies
+Supervisor: Prof. Kim Beth
+---------------------------------------------
+Name: Eva Jobs
+Age: 50
+Thesis Title: E-Banking and its impact on developing countries
+Supervisor: Prof. Steve Jobs
+---------------------------------------------
+Name: Lizzy Stone
+Age: 35
+Thesis Title: Effects of Dams and Bridges on Flooding
+Supervisor: Prof. Louis Parker
+---------------------------------------------
+Name: Nile Gates
+Age: 32
+Thesis Title: Expansion of Urban Population in Canada
+Supervisor: Prof. Bill Gates
+---------------------------------------------
+Name: Tony Blaire
+Age: 40
+Thesis Title: Crypto Currency and its future
+Supervisor: Prof. Elon Musk
+---------------------------------------------
+
+
+List of Graduates using Student Class Object and
+Testing Copy constructor and copy assignment and
+Destructor
+*************************************************
+Name: Tim David
+Age: 30
+Name: Eva Jobs
+Age: 50
+Name: Lizzy Stone
+Age: 35
+Name: Nile Gates
+Age: 32
+Name: Tony Blaire
+Age: 40
+==57263== 
+==57263== HEAP SUMMARY:
+==57263==     in use at exit: 0 bytes in 0 blocks
+==57263==   total heap usage: 76 allocs, 76 frees, 74,195 bytes allocated
+==57263== 
+==57263== All heap blocks were freed -- no leaks are possible
+==57263== 
+==57263== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Fri 24 Nov 2023 08:58:53 PM EST

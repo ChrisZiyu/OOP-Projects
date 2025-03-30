@@ -1,0 +1,40 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 9/28/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+allocate and deallocate dynamic memory for an array;
+
+in this workshop to allocate dynamic memory the new keyword is needed
+the string allocation in the read function:
+
+	 pCode = new char[strlen(tempPcode) + 1];// where tempcode is of size 128 + nullterminator
+ 
+	
+and it will return the member string for the population object and populate char* p_code;
+to deallocate the use of delete[] keyword is important but since we are not using deconstructors the delete[] keyword need to be iterated from the last index to the first in order to
+properly delete it.
+
+overload functions;
+create and use references;
+the overload is in the same read but with different parameters and it will receive the member and pulate the variable inside  the population object and that one is used in static memory.
+
+	bool read(int& pop)
+
+it receive the int&pop parameter to modify the variable directly and populate pCodes[i].s_population inside the iteration so it can store all the s_population.
+
+
+
+create and use references;
+As mentioned above the use of the use of references & modify the variable directly and populate the assigned type. which means what ever is inside the function scope whenever using & the changes will be reflected not only
+inside the function but also outside the function.
+
+One of the issues i was having was that i didnt assigned the input from the user to a global variable in order to later call it in display so displaying the memebers was not going through the if condition
+since it wasnt receiving the variable from the user.

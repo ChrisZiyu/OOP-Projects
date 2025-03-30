@@ -1,0 +1,40 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 11/27/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+Upon successful completion of this workshop, you will have demonstrated the abilities to:
+
+Apply the rule of three to a class and its descendants.
+first dynamically allocate memory for the student class copy the input string.
+Student::Student(const char* name, int age) 
+
+Perform a deep copy with the copy constructor and copy assignment operator
+Student::Student(const Student& student)
+Student::operator=(const Student& student)
+
+destroy the dynamically allocated memory for student class
+
+graduate class:
+the constructor invokess base class student constructor uses the base claass copy constructor and then performs a deep copy of the thesis title and supervisor
+Graduate(const char* name, int age, const char* thesisTitle, const char* supervisor) :Student(name, age)
+copy constructor  use the base class copy constructor and performs a deep copy.
+
+copy constructor calls for the base class assignment operator and then performs a deep copy
+destroy grades 2 strings.
+
+the two destructors needed virtual if not added it caused memory leaks. i used the debugging tool to see the process of detruction and it seems that the destructor for students was deallocating
+properly and when entering to the derived class some were deleted but not all of them. when adding virtual the derived class destructor is called when deleting an object through a base class.
+This allowed to deallocate 10 leaks.
+so the Base class destructor enter and call for the base class destructor and delete from
+deletion order
+--------
+derived,
+Base hierarchy
+

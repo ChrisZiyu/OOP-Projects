@@ -1,0 +1,53 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 10/15/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+
+•	define and create binary member operators
+•	define and create type conversion operators
+•	define and create unary operators
+•	define and create helper operator between a primitive type and a class.
+
+Create binary operators in this assignment the operator need to be defined in the public space inside the class.
+Binary operators include this symbols: +,-,*,/,==.
+In this case binary operators we made are 
+	   Portfolio& operator+=(double RightOP);
+        Portfolio& operator-=(double RightOP);
+Where the right operand add or substract to the left operand. And return *this with the changes made to the current object or the object that the value need to be changed like return RO.
+Type conversion operators used were:
+
+operator  double() const;
+operator const char*() const;
+operator char() const;
+operator bool() const;
+
+the const need to be always there since I faced the problem that whenever I got the value type when returning the current object the data was printing a square, everything got fixed when I added the const and found out that when adding the const the operators don’t modify the state of the object that is going to convert.
+Unary Operators in workshop5p2 didn’t have any instructions to add a unary operator
+But unary operators include the ++,--,+ or –
+
+Unary operators can have a Pre and Post increment 
+The declarations are:
+	Operator++()
+	Operator++(int)
+Int is to define the postfix
+
+Helper Operators we defined two:
+
+    double operator+(const Portfolio& left, const Portfolio& right);
+    double& operator+=(double& left, const Portfolio& right);
+
+Both are declared outside the class and don’t have the full access of the private data members like the helper functions. In this case if I wanted to modify the left operand I wasn’t able to modify it as a helper operator since I wasn’t able to access to the private data member. The solution I made was that I casted the parameter to a double and return the left operand the parameters that are going to change in this case where the two objects so in this case we need to specify the objectname with the reference of it.
+Another aproach is making a helper operator a friend but its not a good practice to make your private members accessible. the declaration is friend classname operator+();
+    double& operator+=(double& left, const Portfolio& right)
+    {
+        left += static_cast<double>(right);
+        return left;
+    }

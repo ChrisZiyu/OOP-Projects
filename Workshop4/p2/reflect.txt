@@ -1,0 +1,66 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.c
+Date of completion    : 10/10/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+
+In this workshop the constructors and the constructors overloads were:
+Constructor:
+Label();
+
+Constructor overloads:
+
+Label(const char* frameArg);
+Label(const char* frameArg, const char* content);
+The first constructor set everything into an empty state but in my case, I added two private functions to set the content and frame.
+The default constructor definitions are: 
+sdds::Label::Label()
+{
+	l_frame = nullptr;
+	l_content = nullptr;
+	setFrame("+-+|+-+|"); 
+
+// this function when receiving a frame parameter will set it to the frame that is inside the constructor.
+}
+The destructor is executed at the end of the program, but I was having one problem when assigning condition into the destructor which at the end I remove those conditions and just add the delete [] value. The ones that need to be deleted are the ones that have dynamic memory allocation.
+To initialize a class member variable first the constructor should assign them the empty state, so the functions that require to use the private data variables are ready to use.
+So if one of this functions that receives a parameter that needs a variable that has dynamically memory allocation 
+		Label(const char* frameArg);
+		Label(const char* frameArg, const char* content);
+		Label& text(const char* content);
+First will need to go through the constructor then if a setFrame or setContent is called the variables are already in a empty state so now it can allocate the frame and content whenever its called within the program.
+void sdds::Label::setFrame(const char* frame)
+{
+	delete[] l_frame;
+	l_frame = nullptr;
+	if (frame != nullptr && frame[0]!='\0')
+	{
+		l_frame = new char[strlen(frame) + 1];
+		strcpy(l_frame, frame);
+		// goes out of scope so destructor should delete it
+	}
+}
+
+void sdds::Label::setContent(const char* content)
+{
+		delete[] l_content;
+		l_content = nullptr;
+
+	if (content != nullptr && content[0] !='\0')
+	{
+		l_content = new char[strlen(content) + 1];
+		strcpy(l_content, content);
+
+	}
+}
+This two functions uses the condition that whenever the argument received is not nullptr  make the private variable allocate the data that holds in a new memory first then copy from source to destination.
+Lastly to release the member pointers the destructor is called after the lifetime of an object ends so all the allocations that the program made by going to the destructor the memory should be destroyed and set to nullptr.
+Just a good practice is whenever the function called receive parameters that need to be dynamically allocated we should first delete[] then set to nullptr the parameter that is going to be allocated, so the variable is ready to use until the setFunctions are called.
+Theres situations that whenever the memory allocation is local when going out of scope the object should be destroyed by the destructor.

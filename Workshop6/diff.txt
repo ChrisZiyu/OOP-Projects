@@ -1,0 +1,14 @@
+In line number 23 of your output:
+The output should be:
+HealthCard Content:
+^
+But your output is: 
+PeHealthCard Content:
+^
+
+Unmatched character details:
+The character in column 1 is supposed to be:
+  [H] ASCII code(72)
+but you printed
+  [P] ASCII code(80)
+

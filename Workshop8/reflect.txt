@@ -1,0 +1,58 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.ca
+Date of completion    : 11/21/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+define pure virtual functions
+virtual functions are defined in the header only and its only holds virtual 
+functions that hold no implementation.
+The pure  functions are considered as abstract class making the others in the herarchy 
+concrete classes that holds the implementation of those functions. so in this case of LblShape class is a concrete  base class of the abstract class of shape.
+
+i stands for interfaces and in the herarchy only this can be seen while the others remain private.
+if the concrete base class dont have full implementation of the virtual functions that class becomes also
+Abstract.
+pur virtual functions are defined with virtual and we add the =0 so the derived class implement it.
+so its a blue print for derived classes we cant use an instance of an abstract class.
+
+create abstract base classes
+we create the abstract base class by including the header file of the interface that holds the virtual functions and also use the =0 so the derived class implement it,
+then we define the functions inside the concrete class will have as behaviour using the override keyword.
+
+class Shape {//abstract class
+public:
+    // Pure virtual function
+    virtual void draw() const = 0;
+    
+   
+    virtual double area() const = 0;
+
+    
+    virtual ~Shape();
+};
+
+implement behaviour using virtual functions.
+
+void getSpecs(istream& istr) override; can be used by all the derived classes and the base class
+and have different behaviour per object, so if get specs is defined the output can be totally diferent from 
+the other object as an example one can just print the line, the shape and the rectangle as same as this function.
+
+void draw(ostream& ostr)const override;
+
+explain the difference between an abstract base class and a concrete class
+An abstract class is the class that holds no implementation in the member functions, while the concrete class
+pull or use the functions defined in the abstract class and implement it in a unique way.
+
+describe what you have learned in completing this workshop
+By completing this workshop i learned what does polymorphism really means when is applied into coding,
+The object can have many forms even they have some of the same variables that are shared by herarchy or
+if the class share some of the functions such as getters so the class can have their own encapsulation, encapsulating
+their independent logic. which makes the code more reusable in different scenarios. and more functions can be added, if
+some other class need some kind of behaviour from other class then implemented to their logic and display it with a different form.

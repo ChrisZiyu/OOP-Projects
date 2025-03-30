@@ -1,0 +1,14 @@
+In line number 28 of your output:
+The output should be:
+Number of labels to create: 6
+                            ^
+But your output is: 
+Number of labels to create: Applied Problem Solving
+                            ^
+
+Unmatched character details:
+The character in column 29 is supposed to be:
+  [6] ASCII code(54)
+but you printed
+  [A] ASCII code(65)
+

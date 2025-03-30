@@ -1,0 +1,71 @@
+/*
+*****************************************************************************
+
+Full Name  : Christian Ziyu Ukiike
+Student ID#: 139915219
+Email      : czukiike-santos-delp@myseneca.c
+Date of completion    : 10/2/23
+
+I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+
+A class is defines by using the class keyword with is the type and the class by default is private so the data member should be defined there like 
+	class Train{
+		char* train_name;
+		int p_aboard;
+		int dep_time;
+		int passengers;
+		int new_dep_time;
+		int totalPassengers;
+} 
+by doing this it will keep the data safe then the next step is to declare the member functions as public those member functions are used for queries which retrieve information from the private data members
+such as: 	
+		int noOfPassengers() const;
+		const char* getName() const;
+		int getDepartureTime() const;
+
+modifiers that modifty the state of the object and special functions that defines the state of that object.
+
+To modify  the object this assignment the set functions were used:
+
+		void set(const char* name);
+		void set(int noOfPassengers, int departure);
+		void set(const char* name, int noOfPassengers, int departure);
+		bool load(int& cantBoard);
+		bool load(int passengers, int& cantBoard);
+		bool updateDepartureTime();
+
+		bool transfer(const Train& from); this function used the library "cstring" so it can retrieve the source and pass it to the combinedName  then use the strcat to add "," then concat to the destination
+						  
+
+		char* combinedName = new char[strlen(from.train_name) + strlen(from.train_name) + 3]; // +3 for ", " and '\0'
+		strcpy(combinedName, train_name);
+		strcat(combinedName, ", ");
+		strcat(combinedName, from.train_name);
+
+		// Set the combined name as the new name for the current train
+		delete[] train_name; deletes the train name so it can later store the whole string and return it to the object
+		totalPassengers = this->p_aboard + from.p_aboard; this one is to update the total passenger and go into a load function with the parameter totalpassengers to check if the train is full.
+		train_name = combinedName; returns the concatenated string to the object
+
+This functions change its value to the private data members,  what ever is set in main.cpp first the object needs to be Initialize then each object will get the values that are set to as
+
+ "A.set("Seneca Express A", 500, 300);" .
+
+in this case the member function that matches each private data member will hold different values for each object such as seneca express A,b,c,d etc.
+
+		int p_aboard;
+		int dep_time;
+		int passengers;
+
+In this assignment the Initialize() function is used as a constructor and finalize() as a deconstructor wich destroy the object when it is out of scope by the use of delete[]name of the allocated private data member.
+To allocate memory the variable is cleaned first then set to nullptr then allocate with the "new" keyword.
+		
+		delete[] train_name;
+		train_name = nullptr;
+
+
+		train_name = new char[strlen(name) + 1];
+		strcpy(train_name, name);

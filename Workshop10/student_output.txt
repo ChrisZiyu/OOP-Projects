@@ -1,0 +1,25 @@
+Script started on Mon 04 Dec 2023 01:18:57 AM EST
+==119569== Memcheck, a memory error detector
+==119569== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==119569== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==119569== Command: ws
+==119569== 
+OOP244 Students with 4.0 GPA:
+Lisa Simpson (22345) GPA: 4.0, Milhouse Van Houten (56789) GPA: 4.0, Todd Flanders (67890) GPA: 4.0
+=============
+Seneca employees in office number 3000:
+Waylon Smithers (Office# 3000), Frank Grimes (Office# 3000)
+=============
+Ford Cars in the parking:
+CDEFG Ford Festiva, BCDEFG Ford Explorer
+=============
+==119569== 
+==119569== HEAP SUMMARY:
+==119569==     in use at exit: 0 bytes in 0 blocks
+==119569==   total heap usage: 4 allocs, 4 frees, 72,744 bytes allocated
+==119569== 
+==119569== All heap blocks were freed -- no leaks are possible
+==119569== 
+==119569== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Mon 04 Dec 2023 01:18:58 AM EST
